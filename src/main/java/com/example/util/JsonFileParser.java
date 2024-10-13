@@ -82,17 +82,18 @@ public class JsonFileParser {
 
     public static void main(String[] args) {
         try {
+            String jsonFilePath;
             ClassLoader classLoader = JsonFileParser.class.getClassLoader();
             java.net.URL resource = classLoader.getResource("file_structure.json");
             if (resource == null) {
                 throw new IllegalArgumentException("file not found!");
             } else {
-                String jsonFilePath = resource.getFile();
+                jsonFilePath = resource.getFile();
                 JsonFileParser parser = new JsonFileParser();
                 parser.parseAndCreateFiles(jsonFilePath);
             }
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error processing file", e);
+        } catch (IllegalArgumentException e) {
+            logger.log(Level.SEVERE, "File not found: " + e.getMessage(), e);
         }
     }
 }
