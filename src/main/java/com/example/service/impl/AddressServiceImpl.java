@@ -39,7 +39,7 @@ public class AddressServiceImpl implements AddressService {
             existingAddress.setStreet(addressDetails.getStreet());
             existingAddress.setCity(addressDetails.getCity());
             existingAddress.setState(addressDetails.getState());
-            existingAddress.setZipCode(addressDetails.getZipCode());
+            existingAddress.setPostalCode(addressDetails.getPostalCode());
             existingAddress.setCountry(addressDetails.getCountry());
             return addressRepository.save(existingAddress);
         }

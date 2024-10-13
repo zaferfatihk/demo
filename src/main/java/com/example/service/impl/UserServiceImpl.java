@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
             user.setId(userDetails.getId());
             user.setEmail(userDetails.getEmail());
             user.setUsername(userDetails.getUsername());
-            user.setAddress(userDetails.getAddress());
+            user.setAddresses(userDetails.getAddresses());
             user.setCreatedAt(userDetails.getCreatedAt());
             user.setUpdatedAt(userDetails.getUpdatedAt());
             return userRepository.save(user);

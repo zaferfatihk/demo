@@ -18,7 +18,7 @@ import com.example.model.AddressEntity;
 import com.example.service.AddressService;
 
 @RestController
-@RequestMapping("/v1/api/addresses")
+@RequestMapping("/api/addresses")
 public class AddressController {
 
     @Autowired

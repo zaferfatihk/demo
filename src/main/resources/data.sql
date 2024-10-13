@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS users;
 -- Create table for users (if not already created)
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -7,6 +8,8 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+DROP TABLE IF EXISTS addresses;
 
 -- Create table for addresses
 CREATE TABLE addresses (
@@ -28,9 +31,9 @@ INSERT INTO users (username, email, password) VALUES
 ('jane_smith', 'jane@example.com', 'hashed_password_2'),
 ('alice_jones', 'alice@example.com', 'hashed_password_3');
 
--- Insert sample data into addresses, linking to users
-INSERT INTO addresses (user_id, street, city, state, postal_code, country) VALUES
-(1, '123 Main St', 'Springfield', 'IL', '62701', 'USA'),  -- John Doe's address
-(1, '456 Elm St', 'Springfield', 'IL', '62702', 'USA'),   -- Another address for John Doe
-(2, '789 Oak St', 'Shelbyville', 'IL', '62565', 'USA'),   -- Jane Smith's address
-(3, '101 Pine St', 'Capital City', 'IL', '62703', 'USA');  -- Alice Jones's address
+-- Insert sample data into addresses, linking to users with explicit IDs
+INSERT INTO addresses (id, user_id, street, city, state, postal_code, country) VALUES
+(1, 1, '123 Main St', 'Springfield', 'IL', '62701', 'USA'),  -- John Doe's first address
+(2, 1, '456 Elm St', 'Springfield', 'IL', '62702', 'USA'),   -- John Doe's second address
+(3, 2, '789 Oak St', 'Shelbyville', 'IL', '62565', 'USA'),   -- Jane Smith's address
+(4, 3, '101 Pine St', 'Capital City', 'IL', '62703', 'USA');  -- Alice Jones's address
