@@ -3,9 +3,8 @@ package com.example.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.model.User;
+import com.example.model.AddressEntity;
 
 @Repository
-public interface UserDao extends JpaRepository<User, Long> {
-    // findAll() method is provided by JpaRepository
+public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
 }
